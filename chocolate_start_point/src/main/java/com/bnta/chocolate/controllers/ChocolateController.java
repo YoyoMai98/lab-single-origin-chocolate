@@ -22,12 +22,11 @@ public class ChocolateController {
         List<Chocolate> chocolates = chocolateService.getAllChocolates();
         return new ResponseEntity<>(chocolates, HttpStatus.OK);
     }
-        
+
     @PostMapping
     public ResponseEntity<Chocolate> postChocolate(@RequestBody Chocolate chocolate){
         Chocolate savedChocolate = chocolateService.saveChocolate(chocolate);
         return new ResponseEntity<>(savedChocolate, HttpStatus.CREATED);
     }
-    
-        
+
 }

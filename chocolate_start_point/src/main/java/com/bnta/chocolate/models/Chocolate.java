@@ -11,10 +11,10 @@ public class Chocolate {
     @GeneratedValue (strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name= "name")
+    @Column
     private String name;
 
-    @Column (name= "cocoa %")
+    @Column
     private int cocoaPercentage;
 
     @ManyToOne
