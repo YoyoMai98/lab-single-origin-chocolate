@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+@Entity (name= "estates")
 
 public class Estate {
 
@@ -21,7 +22,7 @@ public class Estate {
     private String country;
 
     @OneToMany (mappedBy= "chocolate")
-    @JsonIgnoreProperties("")
+    @JsonIgnoreProperties("{estates}")
     private List<Chocolate> chocolates;
 
     public Estate(String name, String country) {
