@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/chocolates")
@@ -21,4 +22,12 @@ public class ChocolateController {
         List<Chocolate> chocolates = chocolateService.getAllChocolates();
         return new ResponseEntity<>(chocolates, HttpStatus.OK);
     }
+        
+    @PostMapping
+    public ResponseEntity<Chocolate> postChocolate(@RequestBody Chocolate chocolate){
+        Chocolate savedChocolate = chocolateService.saveChocolate(chocolate);
+        return new ResponseEntity<>(savedChocolate, HttpStatus.CREATED);
+    }
+    
+        
 }
