@@ -23,6 +23,12 @@ public class ChocolateController {
         return new ResponseEntity<>(chocolates, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Chocolate> getChocolateById(@PathVariable Long id){
+        Chocolate chocolate = chocolateService.getChocolateById(id).get();
+        return new ResponseEntity<>(chocolate, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Chocolate> postChocolate(@RequestBody Chocolate chocolate){
         Chocolate savedChocolate = chocolateService.saveChocolate(chocolate);

@@ -23,6 +23,12 @@ public class EstateController {
         return new ResponseEntity<>(estates, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Estate> getEstateById(@PathVariable Long id){
+        Estate estate = estateService.getEstateById(id).get();
+        return new ResponseEntity<>(estate, HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Estate> addEstate(@RequestBody Estate estate){
         Estate savedEstate = estateService.saveEstate(estate);
